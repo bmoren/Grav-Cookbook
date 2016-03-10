@@ -18,7 +18,23 @@ Output the first image which was uploaded to each children page. This is useful 
 {% endfor %}
 ```
 
+Using an image in the main navigation by seeing what nav element we are looking at!
+```html
+<ul class="nav">
+    {% for page in pages.children %}
+    {% if page.visible %}
+    {% if page.title == 'Projects' %} <!-- check to see if we are on the page we want, if so, use an image instead -->
 
+    <img src="http://icons.iconarchive.com/icons/graphicloads/100-flat/256/home-icon.png" />
+    {% endif %}
+    {% if page.title != 'Projects' %} <!-- check to see if we are on the page we want, if not, use text instead -->
+    {% set current_page = (page.active or page.activeChild) ? 'active' : '' %}
+    <li class=" {{ current_page }}"> <a href="{{ page.url }}"> {{ page.menu }} </a></li>
+    {% endif %}
+    {% endif %}
+    {% endfor %}
+  </ul>
+```
 
 
 
