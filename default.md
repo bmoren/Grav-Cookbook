@@ -23,7 +23,11 @@ Output the HTML tag to display all images associated with a page, useful to get 
 {% endfor %}
 ```
 
-
+get links to the sibling pages next to the current pages, useful for page to page navigation
+```html
+<a href="{{ page.parent().children().nextSibling(page.path).url }}"> next sibling </a>
+<a href="{{ page.parent().children().prevSibling(page.path).url }}"> prev sibling </a>
+  ```
 
 
 
