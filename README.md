@@ -1,6 +1,6 @@
 # Grav Cookbook
 
-## This repository is broken in to a number of parts outlined below, each distinction contains twig snippets I believe are relevant to each type of template page in twig. These examples make reference to the admin panel and assume that you are using the admin panel with GRAV.
+#### This repository is broken in to a number of parts outlined below, each distinction contains twig snippets I believe are relevant to each type of template page in twig. These examples make reference to the admin panel and assume that you are using the admin panel with GRAV.
 
 - [Useful in all template pages](universal.md)
 - [Default Interior Page](default.md)

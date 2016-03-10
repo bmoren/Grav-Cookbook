@@ -33,3 +33,29 @@ The `{{ base_url_relative }}` returns the base URL to the Grav site, without the
 `{{ page.author }}` returns the author of your page. This is associated with the 'author' text box in the admin panel accessible in the configuration tab under the 'site' sub tab.
 
 `{{ page.date }}` returns the date this page was last modified
+
+## images
+
+Get a specific image that has been uploaded, this could be useful if you always have an image like 'logo.png' which you want to be in a specific place.
+```twig
+<img src=" {{ page.media['example_logo.png'].url }} " />
+```
+
+Get the first image from the media upload box at the bottom of the page editor in the admin panel:
+```
+{% set first_image = page.media.images|first %}
+{{first_image.html}}
+```
+
+Get the last image from the media upload box at the bottom of the page editor in the admin panel:
+```
+{% set last_image = page.media.images|last %}
+{{last_image.html}}
+```
+
+`.cropResize(300, 300)` resizes an image to a smaller or larger size based on the width and the height (change the 300,300 above to any size required). This is useful to create thumbnails, the nice thing about it is that it is not reliant on the source image as GRAV creates whole new image that is just the size that you specify, this can help with load times. The example below uses the 'first image' example above but resizes the image:
+```
+{% set first_image = page.media.images|first %}
+{{first_image.cropResize(300, 300).html}}
+```
+
