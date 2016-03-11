@@ -18,6 +18,12 @@ Output the first image which was uploaded to each children page. This is useful 
 {% endfor %}
 ```
 
+Get the first image of the first child
+```Twig
+{{page.children.nth(0).media.images|first.html }}
+
+```
+
 Using an image in the main navigation by seeing what nav element we are looking at!
 ```html
 <ul class="nav">
