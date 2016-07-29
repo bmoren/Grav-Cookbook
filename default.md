@@ -39,5 +39,18 @@ get the very last sibling page in a set of sibling pages
 <a href="{{page.parent.children.nth( page.parent.children.count()- 1 ).url}}">Last Sibling</a>
 ```
 
+make a next button which moves to the next page loops around to the first page if it hits the end
+```html
+      {% if page.id() == page.parent().children.nth( page.parent().children.count() - 1 ).id() %} 
+
+      {{page.parent().children.nth( 0 ).url}}
+
+      {% else %}
+
+      {{ page.parent().children().prevSibling(page.path).url }}
+
+      {% endif %}
+```
+
 
 
